@@ -1,16 +1,19 @@
-from flask import Flask, render_template
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-app = Flask(__name__)
+@app.route('/booking')
+def booking():
+    return render_template('booking.html')
 
-# ✅ This is the key route you're missing
-@app.route('/bookings')
-def show_all_bookings():
-    return render_template('all_bookings.html')
+@app.route('/hostel')
+def hostel():
+    return render_template('hostel_form.html')
+
+@app.route('/pickup')
+def pickup():
+    return render_template('pickup_form.html')
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
