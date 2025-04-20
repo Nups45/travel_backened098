@@ -1,59 +1,60 @@
-from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect
+from models import db, TicketBooking, HostelBooking, PickupService
 
 app = Flask(__name__)
-
-CORS(app)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///travelapp.db'
-db = SQLAlchemy(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
 
-# Destination model
-class Destination(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    country = db.Column(db.String(100))
-    description = db.Column(db.Text)
-    image_url = db.Column(db.String(255))
-
-# Create tables
+# Create DB Tables
 with app.app_context():
     db.create_all()
-# Home page
-@app.route('/')
-def home():
-    return render_template('index.html')
 
-# Add a new destination
-@app.route('/add-destination', methods=['POST'])
-def add_destination():
-    data = request.json
-    new_dest = Destination(
-        name=data['name'],
-        country=data['country'],
-        description=data['description'],
-        image_url=data['image_url']
-    )
-    db.session.add(new_dest)
-    db.session.commit()
-    return jsonify({'message': 'Destination added successfully'})
-# Get all destinations
-@app.route('/destinations', methods=['GET'])
-def get_destinations():
-    destinations = Destination.query.all()
-    result = []
-    for dest in destinations:
-        result.append({
-            'id': dest.id,
-            'name': dest.name,
-            'country': dest.country,
-            'description': dest.description,
-            'image_url': dest.image_url
-        })
-    return jsonify(result)
+@app.route('/')
+def index():
+    return "Welcome to Travel Service API"
+
+@app.route('/book', methods=['GET', 'POST'])
+def book_ticket():
+    if request.method == 'POST':
+        data = TicketBooking(
+            name=request.form['name'],
+            email=request.form['email'],
+            destination=request.form['destination'],
+            date=request.form['date']
+        )
+        db.session.add(data)
+        db.session.commit()
+        return "Ticket booked successfully!"
+    return render_template('book_form.html')
+
+@app.route('/hostel', methods=['GET', 'POST'])
+def hostel_service():
+    if request.method == 'POST':
+        data = HostelBooking(
+            name=request.form['name'],
+            location=request.form['location'],
+            checkin=request.form['checkin'],
+            checkout=request.form['checkout']
+        )
+        db.session.add(data)
+        db.session.commit()
+        return "Hostel booked successfully!"
+    return render_template('hostel_form.html')
+
+@app.route('/pickup', methods=['GET', 'POST'])
+def pickup_service():
+    if request.method == 'POST':
+        data = PickupService(
+            name=request.form['name'],
+            pickup=request.form['pickup'],
+            drop=request.form['drop'],
+            time=request.form['time']
+        )
+        db.session.add(data)
+        db.session.commit()
+        return "Pickup scheduled successfully!"
+    return render_template('pickup_form.html')
 
 if __name__ == '__main__':
-
     app.run(debug=True)
-
