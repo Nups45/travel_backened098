@@ -1,132 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADVENTOUR - Explore Amazing Destinations</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <meta charset="UTF-8">
+  <title>Book Your Service</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
 </head>
 <body>
-    <header>
-        <h1>ADVENTOUR</h1>
-        <p>See the World for Less! Explore Amazing Destinations with Our Budget-Friendly Packages.</p>
-    </header>
 
-    <!-- Search Form -->
-    <section id="search-section">
-        <h2>Search your Destination</h2>
-        <form id="search-form">
-            <input type="text" placeholder="Enter your destination" id="destination" required>
-            <input type="text" placeholder="Enter Your Name" id="name" required>
-            <input type="date" id="date" required>
-            <input type="number" placeholder="Max Price : 2500" id="max-price" required>
-            <button type="submit">Search</button>
-        </form>
-    </section>
+  <h1>Book Your Service</h1>
 
-    <!-- Services -->
-    <section id="services">
-        <h2>We have the best services available for you!</h2>
-        <div class="services-list">
-            <div class="service">
-                <h3>Flight Services</h3>
-                <p>Arrival and Departure</p>
-            </div>
-            <div class="service">
-                <h3>Food Services</h3>
-                <p>Catering</p>
-            </div>
-            <div class="service">
-                <h3>Travel Services</h3>
-                <p>Pick-up/Drop</p>
-            </div>
-            <div class="service">
-                <h3>Hotel Services</h3>
-                <p>Check-in/Out</p>
-            </div>
-        </div>
-    </section>
+  <button onclick="showForm('ticketForm')">Ticket Booking</button>
+  <button onclick="showForm('hostelForm')">Hostel Service</button>
+  <button onclick="showForm('pickupForm')">Pick-up Service</button>
 
-    <!-- Packages Section -->
-    <section id="packages">
-        <h2>Best Selling Destinations</h2>
-        <div class="packages-list">
-            <div class="package">
-                <h3>Starting at Rs.2,700</h3>
-            </div>
-            <div class="package">
-                <h3>Starting at Rs.4,999</h3>
-            </div>
-            <div class="package">
-                <h3>Starting at Rs.9,999</h3>
-            </div>
-            <div class="package">
-                <h3>Starting at Rs.30,000</h3>
-            </div>
-        </div>
-        <button id="book-now">Book Now</button>
-    </section>
+  <!-- Forms -->
+  <div id="ticketForm" class="form-container">
+    {% include 'book_form.html' %}
+  </div>
 
-    <!-- Bestsellers and Jackpot Deals Section -->
-    <section id="deals">
-        <h2>Bestsellers at EPIC Discounts</h2>
-        <div class="deal">
-            <h3>Egypt</h3>
-        </div>
-        <div class="deal">
-            <h3>Vietnam</h3>
-        </div>
-        <!-- Add more locations -->
-        <h2>Jackpot Deals on Top Selling Packages</h2>
-        <div class="deal">
-            <h3>Thailand</h3>
-        </div>
-        <!-- Add more locations -->
-    </section>
+  <div id="hostelForm" class="form-container">
+    {% include 'hostel_form.html' %}
+  </div>
 
-    <!-- Locations Section -->
-    <section id="locations">
-        <h2>Locations</h2>
-        <div class="location">
-            <h3>India - Kashmir</h3>
-        </div>
-        <div class="location">
-            <h3>Turkey - Istanbul</h3>
-        </div>
-        <!-- Add more locations -->
-    </section>
+  <div id="pickupForm" class="form-container">
+    {% include 'pickup_form.html' %}
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Adventour. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Modal for Booking -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-content">
-            <span id="close-modal">&times;</span>
-            <h2>Book Your Service</h2>
-            <div id="services-modal">
-                <a href="/booking"><button>Ticket Booking</button></a>
-                <a href="/hostel"><button>Hostel Service</button></a>
-                <a href="/pickup"><button>Pick-up Service</button></a>
-                
-            </div>
-            <div id="ticket-booking" class="service-details">
-                <h3>Ticket Booking Form</h3>
-                <!-- Add ticket booking form fields here -->
-            </div>
-            <div id="hostel-service" class="service-details">
-                <h3>Hostel Service Form</h3>
-                <!-- Add hostel booking form fields here -->
-            </div>
-            <div id="pickup-service" class="service-details">
-                <h3>Pick-up Service Form</h3>
-                <!-- Add pick-up service form fields here -->
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts.js"></script> <!-- Link to your JS file -->
 </body>
 </html>
