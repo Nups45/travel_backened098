@@ -12,7 +12,8 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return "Welcome to Travel Service API"
+    return render_template('index.html')
+
 
 @app.route('/book', methods=['GET', 'POST'])
 def book_ticket():
@@ -51,7 +52,8 @@ def pickup_service():
             drop=request.form['drop'],
             time=request.form['time']
         )
-        db.session.add(data)
+
+   
         db.session.commit()
         return "Pickup scheduled successfully!"
     return render_template('pickup_form.html')
