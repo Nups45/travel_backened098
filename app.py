@@ -52,7 +52,13 @@ def pickup_service():
             drop=request.form['drop'],
             time=request.form['time']
         )
-        
+        @app.route('/all-bookings')
+def all_bookings():
+    tickets = TicketBooking.query.all()
+    hostels = HostelBooking.query.all()
+    pickups = PickupService.query.all()
+    return render_template('all_bookings.html', tickets=tickets, hostels=hostels, pickups=pickups)
+
    
         db.session.commit()
         return "Pickup scheduled successfully!"

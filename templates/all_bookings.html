@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Bookings</title>
+</head>
+<body>
+    <h1>All Ticket Bookings</h1>
+    <ul>
+        {% for ticket in tickets %}
+            <li>{{ ticket.name }} - {{ ticket.destination }} - {{ ticket.date }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>All Hostel Bookings</h1>
+    <ul>
+        {% for hostel in hostels %}
+            <li>{{ hostel.name }} - {{ hostel.location }} ({{ hostel.checkin }} to {{ hostel.checkout }})</li>
+        {% endfor %}
+    </ul>
+
+    <h1>All Pickup Services</h1>
+    <ul>
+        {% for pickup in pickups %}
+            <li>{{ pickup.name }} - {{ pickup.pickup }} to {{ pickup.drop }} at {{ pickup.time }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
