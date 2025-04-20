@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/booking.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <img src="./assets/files/logo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+        <ul class="navbar">
+            <li>
+                <a href="index.html">Home</a>
+                <a href="#hostel">Hostel</a>
+                <a href="#pickup">Pickup</a>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Booking Form -->
+    <section class="booking">
+        <h1>Book Your Trip</h1>
+        <form action="/booking" method="POST">
+            <label>Full Name: <input type="text" name="name" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <label>Phone: <input type="text" name="phone" required></label>
+
+            <label>Check-in: <input type="date" name="checkin" required></label>
+            <label>Check-out: <input type="date" name="checkout" required></label>
+
+            <label>Room Type:
+                <select name="room_type" required>
+                    <option value="">Select</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Triple">Triple</option>
+                    <option value="Quad">Quad</option>
+                </select>
+            </label>
+
+            <label>Number of Guests: <input type="number" name="guests" min="1" required></label>
+            <label>Additional Requests:
+                <textarea name="requests" rows="4" placeholder="Let us know..."></textarea>
+            </label>
+
+            <input type="submit" value="Book Now" class="submit-btn">
+        </form>
+    </section>
+
+    <!-- Hostel Service Section -->
+    <section class="services" id="hostel">
+        <h2>Hostel Services</h2>
+        <div class="service-box">
+            <p>We offer budget-friendly hostel accommodations across all our tour locations. Clean rooms, free WiFi, and 24x7 support.</p>
+        </div>
+    </section>
+
+    <!-- Pickup & Drop Section -->
+    <section class="services" id="pickup">
+        <h2>Pickup & Drop Services</h2>
+        <div class="service-box">
+            <p>Get picked up from airport, station or your doorstep. We ensure smooth transport to and from your stay or destinations.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="foot">
+            <div class="footer-content">
+                <div class="footlinks">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Register</a></li>
+                        <li><a href="info.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footlinks">
+                    <h4>Connect</h4>
+                    <div class="social">
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-twitter'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="end">
+            <p>© 2025 FirstFlight Travels. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
