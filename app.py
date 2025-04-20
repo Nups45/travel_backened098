@@ -26,7 +26,7 @@ def book_ticket():
         )
         db.session.add(data)
         db.session.commit()
-        return "Ticket booked successfully!"
+        return render_template('confirmation.html', type='Ticket', data=data)
     return render_template('book_form.html')
 
 @app.route('/hostel', methods=['GET', 'POST'])
@@ -52,7 +52,7 @@ def pickup_service():
             drop=request.form['drop'],
             time=request.form['time']
         )
-
+        
    
         db.session.commit()
         return "Pickup scheduled successfully!"
