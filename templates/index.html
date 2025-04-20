@@ -2,68 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Travel Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #74ebd5, #ACB6E5);
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            color: #333;
-        }
-
-        header {
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        .buttons {
-            margin-top: 50px;
-        }
-
-        .buttons a {
-            text-decoration: none;
-            display: inline-block;
-            margin: 15px;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 30px;
-            transition: background-color 0.3s ease;
-        }
-
-        .buttons a:hover {
-            background-color: #0056b3;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 10px;
-            color: #444;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVENTOUR - Explore Amazing Destinations</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
-        <h1>Welcome to Travel Service</h1>
-        <p>Book tickets, find hostels, and schedule pickups easily</p>
+        <h1>ADVENTOUR</h1>
+        <p>See the World for Less! Explore Amazing Destinations with Our Budget-Friendly Packages.</p>
     </header>
 
-    <div class="buttons">
-        <a href="/book">🎟️ Book Ticket</a>
-        <a href="/hostel">🏨 Hostel Service</a>
-        <a href="/pickup">🚗 Pick & Drop</a>
+    <!-- Search Form -->
+    <section id="search-section">
+        <h2>Search your Destination</h2>
+        <form id="search-form">
+            <input type="text" placeholder="Enter your destination" id="destination" required>
+            <input type="text" placeholder="Enter Your Name" id="name" required>
+            <input type="date" id="date" required>
+            <input type="number" placeholder="Max Price : 2500" id="max-price" required>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>We have the best services available for you!</h2>
+        <div class="services-list">
+            <div class="service">
+                <h3>Flight Services</h3>
+                <p>Arrival and Departure</p>
+            </div>
+            <div class="service">
+                <h3>Food Services</h3>
+                <p>Catering</p>
+            </div>
+            <div class="service">
+                <h3>Travel Services</h3>
+                <p>Pick-up/Drop</p>
+            </div>
+            <div class="service">
+                <h3>Hotel Services</h3>
+                <p>Check-in/Out</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages">
+        <h2>Best Selling Destinations</h2>
+        <div class="packages-list">
+            <div class="package">
+                <h3>Starting at Rs.2,700</h3>
+            </div>
+            <div class="package">
+                <h3>Starting at Rs.4,999</h3>
+            </div>
+            <div class="package">
+                <h3>Starting at Rs.9,999</h3>
+            </div>
+            <div class="package">
+                <h3>Starting at Rs.30,000</h3>
+            </div>
+        </div>
+        <button id="book-now">Book Now</button>
+    </section>
+
+    <!-- Bestsellers and Jackpot Deals Section -->
+    <section id="deals">
+        <h2>Bestsellers at EPIC Discounts</h2>
+        <div class="deal">
+            <h3>Egypt</h3>
+        </div>
+        <div class="deal">
+            <h3>Vietnam</h3>
+        </div>
+        <!-- Add more locations -->
+        <h2>Jackpot Deals on Top Selling Packages</h2>
+        <div class="deal">
+            <h3>Thailand</h3>
+        </div>
+        <!-- Add more locations -->
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations">
+        <h2>Locations</h2>
+        <div class="location">
+            <h3>India - Kashmir</h3>
+        </div>
+        <div class="location">
+            <h3>Turkey - Istanbul</h3>
+        </div>
+        <!-- Add more locations -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Adventour. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Modal for Booking -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>Book Your Service</h2>
+            <div id="services-modal">
+                <button onclick="showService('ticket-booking')">Ticket Booking</button>
+                <button onclick="showService('hostel-service')">Hostel Service</button>
+                <button onclick="showService('pickup-service')">Pick-up Service</button>
+            </div>
+            <div id="ticket-booking" class="service-details">
+                <h3>Ticket Booking Form</h3>
+                <!-- Add ticket booking form fields here -->
+            </div>
+            <div id="hostel-service" class="service-details">
+                <h3>Hostel Service Form</h3>
+                <!-- Add hostel booking form fields here -->
+            </div>
+            <div id="pickup-service" class="service-details">
+                <h3>Pick-up Service Form</h3>
+                <!-- Add pick-up service form fields here -->
+            </div>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Travel Services</p>
-    </footer>
+    <script src="scripts.js"></script> <!-- Link to your JS file -->
 </body>
 </html>
