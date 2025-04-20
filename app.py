@@ -29,6 +29,7 @@ def book_ticket():
         return render_template('confirmation.html', type='Ticket', data=data)
     return render_template('book_form.html')
 
+
 @app.route('/hostel', methods=['GET', 'POST'])
 def hostel_service():
     if request.method == 'POST':
@@ -43,6 +44,7 @@ def hostel_service():
         return "Hostel booked successfully!"
     return render_template('hostel_form.html')
 
+
 @app.route('/pickup', methods=['GET', 'POST'])
 def pickup_service():
     if request.method == 'POST':
@@ -52,17 +54,19 @@ def pickup_service():
             drop=request.form['drop'],
             time=request.form['time']
         )
-        @app.route('/all-bookings')
+        db.session.add(data)
+        db.session.commit()
+        return "Pickup scheduled successfully!"
+    return render_template('pickup_form.html')
+
+
+@app.route('/all-bookings')
 def all_bookings():
     tickets = TicketBooking.query.all()
     hostels = HostelBooking.query.all()
     pickups = PickupService.query.all()
     return render_template('all_bookings.html', tickets=tickets, hostels=hostels, pickups=pickups)
 
-   
-        db.session.commit()
-        return "Pickup scheduled successfully!"
-    return render_template('pickup_form.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
