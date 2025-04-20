@@ -1,7 +1,55 @@
-<form method="POST" action="/pickup">
-    <label>Name:</label><input type="text" name="name" required><br>
-    <label>Pickup Location:</label><input type="text" name="pickup" required><br>
-    <label>Drop Location:</label><input type="text" name="drop" required><br>
-    <label>Time:</label><input type="time" name="time" required><br>
-    <input type="submit" value="Schedule Pickup">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pickup & Drop Service</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fde2e4;
+            padding: 40px;
+            text-align: center;
+        }
+
+        form {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], input[type="time"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 12px 30px;
+            background-color: #e83e8c;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #be2f6f;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pick & Drop Booking</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="text" name="pickup" placeholder="Pickup Location" required><br>
+        <input type="text" name="drop" placeholder="Drop Location" required><br>
+        <input type="time" name="time" required><br>
+        <input type="submit" value="Book Ride">
+    </form>
+</body>
+</html>
