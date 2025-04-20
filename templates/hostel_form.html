@@ -1,7 +1,55 @@
-<form method="POST">
-    <label>Name:</label><input type="text" name="name"><br>
-    <label>Location:</label><input type="text" name="location"><br>
-    <label>Check-in:</label><input type="date" name="checkin"><br>
-    <label>Check-out:</label><input type="date" name="checkout"><br>
-    <input type="submit" value="Book Hostel">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Booking</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e2f0cb;
+            padding: 40px;
+            text-align: center;
+        }
+
+        form {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], input[type="date"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 12px 30px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hostel Booking Form</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="text" name="location" placeholder="Location" required><br>
+        <input type="date" name="checkin" required><br>
+        <input type="date" name="checkout" required><br>
+        <input type="submit" value="Book Hostel">
+    </form>
+</body>
+</html>

@@ -1,7 +1,55 @@
-<form method="POST">
-    <label>Name:</label><input type="text" name="name"><br>
-    <label>Email:</label><input type="email" name="email"><br>
-    <label>Destination:</label><input type="text" name="destination"><br>
-    <label>Date:</label><input type="date" name="date"><br>
-    <input type="submit" value="Book Ticket">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book a Ticket</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            padding: 40px;
+            text-align: center;
+        }
+
+        form {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], input[type="email"], input[type="date"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 12px 30px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Book Your Ticket</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <input type="text" name="destination" placeholder="Destination" required><br>
+        <input type="date" name="date" required><br>
+        <input type="submit" value="Book Now">
+    </form>
+</body>
+</html>

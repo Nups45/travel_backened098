@@ -1,30 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Bookings</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body>
-    <h1>All Ticket Bookings</h1>
-    <ul>
-        {% for ticket in tickets %}
-            <li>{{ ticket.name }} - {{ ticket.destination }} - {{ ticket.date }}</li>
-        {% endfor %}
-    </ul>
+    <!-- Navigation -->
+    <nav>
+        <img src="/assets/files/logo.png" class="logo" alt="Logo">
+        <ul class="navbar">
+            <li>
+                <a href="/bookings">All Bookings</a>
+                <a href="/">Home</a>
+                <a href="/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
 
-    <h1>All Hostel Bookings</h1>
-    <ul>
-        {% for hostel in hostels %}
-            <li>{{ hostel.name }} - {{ hostel.location }} ({{ hostel.checkin }} to {{ hostel.checkout }})</li>
-        {% endfor %}
-    </ul>
+    <!-- Booking Table -->
+    <div class="booking-container">
+        <h1>All Bookings</h1>
+        <table class="booking-table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Accommodation Type</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example data, replace with dynamic data later -->
+                <tr>
+                    <td>1</td>
+                    <td>Amit Kumar</td>
+                    <td>amit@example.com</td>
+                    <td>9876543210</td>
+                    <td>Hotel</td>
+                    <td>2025-04-25</td>
+                    <td>2025-04-30</td>
+                    <td>
+                        <a href="/booking-details/1">View</a> | 
+                        <a href="/edit-booking/1">Edit</a> | 
+                        <a href="/delete-booking/1">Delete</a>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically from your backend -->
+            </tbody>
+        </table>
+    </div>
 
-    <h1>All Pickup Services</h1>
-    <ul>
-        {% for pickup in pickups %}
-            <li>{{ pickup.name }} - {{ pickup.pickup }} to {{ pickup.drop }} at {{ pickup.time }}</li>
-        {% endfor %}
-    </ul>
-
-    <a href="/">Back to Home</a>
+    <!-- Footer -->
+    <footer>
+        <p>Copyright © 2023 Adventour All Rights Reserved. Developed by Amit Kumar Singh</p>
+    </footer>
 </body>
 </html>
